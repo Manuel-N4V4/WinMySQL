@@ -1,0 +1,25 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_server
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: joseluis
+      MYSQL_DATABASE: escolar
+      MYSQL_USER: luis
+      MYSQL_PASSWORD: joseluis
+    ports:
+        - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command : --bind-address=0.0.0.0
+    networks:
+        - mysql_network      
+volumes:
+   mysql_data:
+    driver: local
+networks:
+  mysql_network:
+    driver: bridge
+
+    #Entras al apartado del archivo: docker-compose.yml para luego presiones CTRL y Ñ para que te abra PowerShell y luego colocas los siguentes comandos: dir <- Este es para saber en que parte de la direccion estas, cd WinMySQL para entrar a esa "carpeta" donde esta el archivo, una vez dentro colocas el comando docker compose up .d para luego que termine la descarga coloques docker sp para que te arroje una ventanilla sobre la base de datos
