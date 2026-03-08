@@ -1,3 +1,5 @@
+using WinMySQL.Formulario_Alumno;
+using WinMySQL.Formulario_Mestro;
 using WinMySQL.Views;
 
 namespace WinMySQL
@@ -18,6 +20,18 @@ namespace WinMySQL
         private void frmMenu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMaestro maestro = new frmMaestro();
+            maestro.Show();
+        }
+
+        private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDatosAlumno alumno = new frmDatosAlumno();
+            alumno.Show();
         }
     }
 }

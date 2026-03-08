@@ -20,7 +20,8 @@ namespace WinMySQL.Clases
                 conexion = new MySqlConnection(cadenaConexion);
                 conexion.Open();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.Message);
             }
         }
@@ -42,14 +43,16 @@ namespace WinMySQL.Clases
 
         public DataSet ejecutar(string comando)
         {
-            try {
+            try
+            {
                 Conectar();
                 MySqlDataAdapter da = new MySqlDataAdapter(comando, conexion);
                 DataSet ds= new DataSet();
                 da.Fill(ds);
                 return ds;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.Message);
                 return null;
             }
@@ -57,14 +60,16 @@ namespace WinMySQL.Clases
 
         public bool ejecutarComando(String comando)
         {
-            try { 
+            try
+            { 
                 Conectar();
                 MySqlCommand cmd= new MySqlCommand(comando,conexion);
                 cmd.ExecuteNonQuery();
                 return true;
 
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            { 
                 Console.WriteLine(ex.Message);
                 return false;
             }
